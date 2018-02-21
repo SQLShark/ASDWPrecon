@@ -1,0 +1,2 @@
+CREATE LOGIN %UserName%Login WITH PASSWORD = '%Password%';
+CREATE USER %UserName% FOR LOGIN %UserName%Login;

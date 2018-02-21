@@ -1,0 +1,71 @@
+
+--Clean up from previous demo
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='SalesOrderHeader')
+BEGIN
+	DROP TABLE dbo.SalesOrderHeader
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='Customer')
+BEGIN
+	DROP TABLE dbo.Customer
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='SalesOrderDetail')
+BEGIN
+	DROP TABLE dbo.SalesOrderDetail
+END
+
+
+--Bring Data in from external tables
+CREATE TABLE dbo.SalesOrderHeader
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT *
+  FROM [ext].SalesOrderHeader
+
+CREATE TABLE dbo.Customer
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT *
+  FROM [ext].Customer
+
+CREATE TABLE dbo.SalesOrderDetail
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT *
+  FROM [ext].SalesOrderDetail
+
+
+--Query to Review
+EXPLAIN
+SELECT
+	C.[CustomerID],
+	SUM(CAST([LineTotal] as money)) TotalSales
+FROM
+	dbo.Customer C
+	INNER JOIN dbo.SalesOrderHeader SOH ON C.CustomerID = SOH.CustomerID
+	INNER JOIN dbo.SalesOrderDetail SOD ON SOH.SalesOrderID = SOD.SalesOrderID
+GROUP BY C.[CustomerID]
+OPTION (LABEL = 'This is the query we are interested in')
+
+--Performance DMVs
+SELECT *
+FROM sys.dm_pdw_exec_requests
+
+SELECT *
+FROM sys.dm_pdw_request_steps
+WHERE request_id = <Request ID>
+
+SELECT *
+FROM sys.dm_pdw_sql_requests
+WHERE request_id = <Request ID> AND step_index = <Step Number>

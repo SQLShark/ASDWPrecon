@@ -1,0 +1,35 @@
+/*================================================================
+ * Desc:		Create Script for External Table & Related Data Source
+ * Created:		This procedure was auto-generated at %CREATETIME%
+ * Created By:	Procedure Logic provided by Adatis Consulting Ltd
+ ================================================================*/
+
+BEGIN TRY
+  DROP EXTERNAL TABLE Ext.%ENTITYNAME%;
+END TRY
+BEGIN CATCH
+	PRINT 'DNGN'
+END CATCH
+
+BEGIN TRY
+  DROP EXTERNAL DATA SOURCE Blob_%CONTAINERNAME%;
+END TRY
+BEGIN CATCH
+	PRINT 'DNGN'
+END CATCH
+
+
+CREATE EXTERNAL DATA SOURCE Blob_%CONTAINERNAME%
+WITH (TYPE = HADOOP,
+      LOCATION = 'wasbs://%CONTAINERNAME%@%BLOBACCOUNT%.blob.core.windows.net',
+      CREDENTIAL = %CREDENTIALNAME%);
+
+
+CREATE EXTERNAL TABLE Ext.%ENTITYNAME%(
+	%COLUMNEXTDDL%
+)
+WITH (LOCATION='./',
+      DATA_SOURCE  = Blob_%CONTAINERNAME%,
+      FILE_FORMAT  = %FILEFORMAT%,
+      REJECT_TYPE  = VALUE,
+      REJECT_VALUE = 0);

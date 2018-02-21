@@ -1,0 +1,18 @@
+--Return distribution usage
+DBCC PDW_SHOWSPACEUSED
+
+--Return ALL table across ALL distributions
+SELECT
+    ps.pdw_node_id
+  , ps.distribution_id
+  , ps.object_id AS 'physical_object_id'
+  , ps.index_id
+  , ps.partition_number
+  , ps.row_count
+  , ps.used_page_count
+FROM
+    sys.dm_pdw_nodes_db_partition_stats AS ps;
+
+--Formatted view, good for exploring distribution skew
+SELECT *
+  FROM [dbo].[vTableSizes]

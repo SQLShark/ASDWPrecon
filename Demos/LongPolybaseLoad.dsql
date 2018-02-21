@@ -1,0 +1,23 @@
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]
+UNION
+SELECT count(*) FROM [ext].[FactProductInventory]

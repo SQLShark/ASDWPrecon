@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SQLDW Manager/ADW Manager/bin/Debug
+/.vs/VSWorkspaceState.json
+/.vs/ProjectSettings.json

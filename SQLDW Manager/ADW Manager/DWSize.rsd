@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ADW</DataSourceReference>
+      <CommandText>  SELECT  COUNT(*) Nodes,
+                COUNT(*)/8*100 IndicitiveSize
+
+    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
+            ON  wg.pdw_node_id  = rp.pdw_node_id
+            AND wg.pool_id      = rp.pool_id
+    JOIN    sys.dm_pdw_nodes pn
+            ON  wg.pdw_node_id  = pn.pdw_node_id
+    WHERE   wg.name like 'SloDWGroup%'
+        AND     rp.name = 'SloDWPool'
+              AND           pn.[type] = 'COMPUTE'</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Nodes">
+        <DataField>Nodes</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="IndicitiveSize">
+        <DataField>IndicitiveSize</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

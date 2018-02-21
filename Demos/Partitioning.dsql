@@ -1,0 +1,89 @@
+--Clean up from previous demo runs
+DROP TABLE dbo.FactInternetSales_Part
+DROP TABLE dbo.FactInternetSales_P20040101
+
+--Create copy of table to perform upsert on
+CREATE TABLE [dbo].[FactInternetSales_Part]
+WITH
+(
+	DISTRIBUTION = HASH ( [ProductKey] ),
+	CLUSTERED COLUMNSTORE INDEX,
+	PARTITION
+	(
+		[OrderDateKey] RANGE RIGHT FOR VALUES (20000101, 20010101, 20020101, 20030101, 20040101, 20050101, 20060101, 20070101, 20080101, 20090101, 20100101, 20110101, 20120101, 20130101, 20140101, 20150101, 20160101, 20170101, 20180101, 20190101, 20200101, 20210101, 20220101, 20230101, 20240101, 20250101, 20260101, 20270101, 20280101, 20290101)
+	)
+)
+AS
+SELECT * FROM dbo.FactInternetSales
+
+--Create delta records table with amended values
+CREATE TABLE dbo.FactInternetSales_P20040101
+WITH
+(
+	DISTRIBUTION = HASH ( [ProductKey] ),
+	CLUSTERED COLUMNSTORE INDEX,
+	PARTITION
+	(
+		[OrderDateKey] RANGE RIGHT FOR VALUES (20030101, 20040101, 20050101)
+	)
+)
+AS
+SELECT
+	[ProductKey], 
+	[OrderDateKey], 
+	[DueDateKey], 
+	[ShipDateKey], 
+	[CustomerKey], 
+	[PromotionKey], 
+	[CurrencyKey], 
+	[SalesTerritoryKey], 
+	[SalesOrderNumber], 
+	[SalesOrderLineNumber], 
+	[RevisionNumber], 
+	[OrderQuantity], 
+	[UnitPrice], 
+	[ExtendedAmount], 
+	[UnitPriceDiscountPct], 
+	[DiscountAmount], 
+	[ProductStandardCost], 
+	[TotalProductCost], 
+	ISNULL(CAST([SalesAmount] * 20.4 AS MONEY),0) [SalesAmount], 
+	[TaxAmt], 
+	[Freight], 
+	[CarrierTrackingNumber], 
+	[CustomerPONumber]
+FROM [dbo].[FactInternetSales]
+WHERE OrderDateKey > 20040101 AND OrderDateKey < 20050101
+
+--Check current row counts for Target table
+SELECT LEFT(OrderDateKey,4),
+	SUM(SalesAmount)
+FROM dbo.FactInternetSales_Part
+GROUP BY LEFT(OrderDateKey,4)
+
+--Check current row counts for Delta table
+SELECT LEFT(OrderDateKey,4),
+	SUM(SalesAmount)
+FROM dbo.FactInternetSales_P20040101
+GROUP BY LEFT(OrderDateKey,4)
+
+--Perform table switch in, with TRUNCATE_TARGET switch
+ALTER TABLE [dbo].FactInternetSales_P20040101 
+SWITCH PARTITION 3
+TO [dbo].[FactInternetSales_Part] PARTITION 6 WITH (TRUNCATE_TARGET = ON)
+
+
+--Check current row counts for Target table
+SELECT LEFT(OrderDateKey,4),
+	SUM(SalesAmount)
+FROM dbo.FactInternetSales_Part
+GROUP BY LEFT(OrderDateKey,4)
+
+--Check current row counts for Delta table
+SELECT LEFT(OrderDateKey,4),
+	SUM(SalesAmount)
+FROM dbo.FactInternetSales_P20040101
+GROUP BY LEFT(OrderDateKey,4)
+
+
+select * from sys.partition_range_values

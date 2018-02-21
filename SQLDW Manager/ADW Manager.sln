@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "ADW Manager", "ADW Manager\ADW Manager.rptproj", "{9993B325-5D5B-4694-9435-CE65DAD1F825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Debug|Default.ActiveCfg = Debug
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Debug|Default.Build.0 = Debug
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Debug|Default.Deploy.0 = Debug
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.DebugLocal|Default.Build.0 = DebugLocal
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Release|Default.ActiveCfg = Release
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Release|Default.Build.0 = Release
+		{9993B325-5D5B-4694-9435-CE65DAD1F825}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.adatis.co.uk/tfs/adatis
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ADW\u0020Manager\\ADW\u0020Manager.rptproj
+		SccProjectName1 = ADW\u0020Manager
+		SccLocalPath1 = ADW\u0020Manager
+	EndGlobalSection
+EndGlobal

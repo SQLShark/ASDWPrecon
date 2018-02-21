@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ADW">
+  <ConnectionProperties>
+    <Extension>SQLAZURE</Extension>
+    <ConnectString>Data Source=magicadventure.database.windows.net;Initial Catalog=sqlbits2018;Encrypt=True;TrustServerCertificate=False;Authentication="Sql Password"</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>645d76c9-873d-4541-868e-6869131bb183</DataSourceID>
+</RptDataSource>

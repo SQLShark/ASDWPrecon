@@ -1,0 +1,72 @@
+--Clean up from previous demo
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='FactInternetSales')
+BEGIN
+	DROP TABLE dbo.FactInternetSales
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='FactInternetSalesPH')
+BEGIN
+	DROP TABLE dbo.FactInternetSalesPH
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='FactInternetSalesPH_Bad')
+BEGIN
+	DROP TABLE dbo.FactInternetSalesPH_Bad
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='FactInternetSalesREP')
+BEGIN
+	DROP TABLE dbo.FactInternetSalesREP
+END
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='FactInternetSalesRR')
+BEGIN
+	DROP TABLE dbo.FactInternetSalesRR
+END
+
+--Bring Data in from external tables
+CREATE TABLE dbo.FactInternetSales
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT *
+  FROM [ext].[FactInternetSales]
+
+
+
+--Create Hash Distributed table on Product Key
+CREATE TABLE dbo.FactInternetSalesPH
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = HASH(ProductKey)
+)
+AS
+SELECT *
+  FROM [dbo].[FactInternetSales]
+
+
+--Create Hash Distributed table on CurrencyKey
+CREATE TABLE dbo.FactInternetSalesPH_Bad
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = HASH(CurrencyKey)
+)
+AS
+SELECT *
+  FROM [dbo].[FactInternetSales]
+
+--Create Replicated Table
+CREATE TABLE dbo.FactInternetSalesREP
+WITH
+(
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = REPLICATE
+)
+AS
+SELECT *
+  FROM [dbo].[FactInternetSales]
+
+--Example of renaming switcheroo
+RENAME OBJECT  [dbo].[FactInternetSales] to [FactInternetSalesRR]
+RENAME OBJECT  [dbo].[FactInternetSalesPH] to [FactInternetSales]
