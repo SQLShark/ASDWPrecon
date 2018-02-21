@@ -101,3 +101,7 @@ You can contact Simon here: saw@adatis.co.uk or via [@MrSiWhiteley](https://twit
 - https://www.amazon.co.uk/Big-Data-Principles-practices-scalable/dp/1617290343/ref=sr_1_1?ie=UTF8&qid=1519221273&sr=8-1&keywords=big+data+nathan+marz
 Simon Talking about the process of Lambda in Azure. 
 - https://www.youtube.com/watch?v=lcFDrIbTyxE
+Additional links for CTAS statements
+- http://blogs.adatis.co.uk/simonwhiteley/post/Azure-SQLDW-CTAS-Statements
+- https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Loading-data-into-Azure-SQL-Datawarehouse
+- https://azure.microsoft.com/en-gb/blog/introducing-select-into-in-azure-sql-data-warehouse/
