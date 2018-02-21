@@ -1,6 +1,24 @@
 # LAB - 00. Setup lab
 The following lab is everything that is required to get you up and running. 
 
+------------------------------------------------------------------
+To get connected via SSMS you will need the following address: 
+
+```sql
+Address: magicadventure.database.windows.net
+Username : gandalf
+Password: Password1234!
+```
+
+Once connected, please use your instance. We will give you each a number. 
+If you are in seat 1, then you will connect to SQLBits2018User1
+
+There are 70 instances so there is enough for everyone. 
+
+
+
+-------------------------------------------------------------------
+
 1 - Create a SQL Datawarehouse
  
 Click New, then on "Databases"
