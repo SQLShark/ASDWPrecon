@@ -95,4 +95,9 @@ You can contact Simon here: saw@adatis.co.uk or via [@MrSiWhiteley](https://twit
 
 ### Links mentioned during the talk. 
 
--https://docs.microsoft.com/en-us/azure/sql-data-warehouse/resource-classes-for-workload-management
+- https://docs.microsoft.com/en-us/azure/sql-data-warehouse/resource-classes-for-workload-management
+- https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor
+- http://download.microsoft.com/download/F/8/6/F8654654-6784-48F5-83C0-2D46186EEC66/Data_Warehouse_Fast_Track_Reference_Guide_for_SQL_Server_2016_EN_US.pdf
+- https://www.amazon.co.uk/Big-Data-Principles-practices-scalable/dp/1617290343/ref=sr_1_1?ie=UTF8&qid=1519221273&sr=8-1&keywords=big+data+nathan+marz
+Simon Talking about the process of Lambda in Azure. 
+- https://www.youtube.com/watch?v=lcFDrIbTyxE
