@@ -33,6 +33,16 @@ To back this up we have a series of labs.
 
 Each lab will last less than 20 minutes. If you're not able to complete the lab in time, there will either be a procedure you can run to get you up to date, or a script to run. 
 
+## Tools required for today
+These labs require tools most Azure developers have on their development machines. They do need to be the latest edition for some of the new features to work. 
+
+Can you please ensure that you have the following installed. 
+- SQL Server Management Studio 17+ (17.5 is best) download [here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+- Visual Studio 17
+OR Vscode
+- Azure Storage Explorer download [here](https://azure.microsoft.com/en-us/features/storage-explorer/)
+- PowerShell - We wont do any labs in PowerShell, but there is content for you to use. 
+
 ## Structure of GitHub 
 - Slides - You will find the latest version of all the slides located [here](https://github.com/SQLShark/ASDWPrecon/tree/master/Slides). 
 - MagicWorks - We will use a very magical version of Adventure Works for all our demos. All files required are located in blob storage and also in their relevant files. You do not need to run these scripts, they are for reference only. 
