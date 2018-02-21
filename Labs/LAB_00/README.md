@@ -10,6 +10,8 @@ Username : gandalf
 Password: Password1234!
 ```
 
+![GitHub Logo](/images/usersanddesks.png)
+
 Once connected, please use your instance. We will give you each a number. 
 If you are in seat 1, then you will connect to SQLBits2018User1
 
