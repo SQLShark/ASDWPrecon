@@ -10,27 +10,27 @@ Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKD
 
 Users 11-20:
 Blob Account: magicworksblob2
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: iPKgnuG5oI6sl9lplkTl2v9KGboJthwMNm1BDurW5NkOU1r0qaUSXNlSZxZGCC6PjGqv2mB+8ABMtVcvlVWSgg==
 
 Users 21-30:
 Blob Account: magicworksblob3
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: //xPuuJEovTStG3YqxpzlCyyDWcojaf0iK3LuuJxrFWfwVpc8MNJg69sTUitdT/a08/aYoIzYbKD9v7kNYGSaA==
 
 Users 31-40:
 Blob Account: magicworksblob4
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: hvLzIESMiRANksNoP4Jv5ZTfsvLKaGkAvAOrf5Cl9RUzx46zktO1wa87ssNQSFwKBLJnz1d3aMVJuuUTsBswWQ==
 
 Users 41-50:
 Blob Account: magicworksblob5
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: 7NDJoZdV1459ZB8wUzDEBt/qUZnxzeEBvS+LHH4sZPTVFugMnC12c2as2M1d9FZbKn3EYmOpL2cu7Yb0xjmOpA==
 
 Users 51-60:
 Blob Account: magicworksblob6
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: qsgGBy85YqL6//M4BJ8OMCdEGnwS8Soj44W9oi0RcydNMWQNIbQtNi+7NUQ65A3b6mSKZzMPHqQ2WSPDIVda0A==
 
 Users 61-70:
 Blob Account: magicworksblob7
-Blob Key: WR6PLCnUMJ9Hu6Wkt7EUadRLDnoVF3cTabiGm//3FBXXJOSFAPqjrkfqqEW9qT4P2OlsKDcY0iSRUfDWtNhKrA==
+Blob Key: dpUqFYVTcV8SCVf/sV/qX76sRGpEi/PQVlvdg/xiR8PJALPiYuJXNBn/HLbV4mQ5kX5aAurYVoBXQo4kjNCxGA==
 ```
 
 To view the data you can install Azure storage explorer. You can download this 
@@ -108,7 +108,7 @@ WITH (
 This is schema on read so we need to state what the expected data should be as it is read. 
 Polybase has some quirks, but as long as we have structured data we will be fine. If you need to clean the data to conform with Polybase's quirks, we recommend custom functions in Data Factory or to use Data Lake Analytics. 
 
-You will need to amend 
+You will need to amend the following. 
 ```sql
 CREATE EXTERNAL DATA SOURCE Blob_person
 WITH (TYPE = HADOOP,
