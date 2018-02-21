@@ -105,3 +105,5 @@ Additional links for CTAS statements
 - http://blogs.adatis.co.uk/simonwhiteley/post/Azure-SQLDW-CTAS-Statements
 - https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Loading-data-into-Azure-SQL-Datawarehouse
 - https://azure.microsoft.com/en-gb/blog/introducing-select-into-in-azure-sql-data-warehouse/
+When should I use Azure SQL Data Warehouse? 
+- https://www.blue-granite.com/blog/is-azure-sql-data-warehouse-a-good-fit
