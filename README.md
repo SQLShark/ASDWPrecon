@@ -92,3 +92,7 @@ Simon is technical lead for Adatis, driving their adoption of new architectures 
 A newly-minted Microsoft Data Platform MVP, Simon runs the SQLSurrey PASS Chapter, speaks at a variety of conferences and user groups throughout the UK and Europe and will happily talk your ear off about the various new approaches we're currently working on.
 
 You can contact Simon here: saw@adatis.co.uk or via [@MrSiWhiteley](https://twitter.com/MrSiWhiteley) on Twitter
+
+### Links mentioned during the talk. 
+
+-https://docs.microsoft.com/en-us/azure/sql-data-warehouse/resource-classes-for-workload-management

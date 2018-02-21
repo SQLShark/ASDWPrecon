@@ -110,18 +110,18 @@ Polybase has some quirks, but as long as we have structured data we will be fine
 
 You will need to amend the following. 
 ```sql
-CREATE EXTERNAL DATA SOURCE Blob_person
+CREATE EXTERNAL DATA SOURCE Blob_product
 WITH (TYPE = HADOOP,
-      LOCATION = 'wasbs://person@magicworksblob.blob.core.windows.net',
+      LOCATION = 'wasbs://product@magicworksblob.blob.core.windows.net',
       CREDENTIAL = AzureStorageCredential);
 ```
 
 ```sql
-CREATE EXTERNAL TABLE Ext.Person(
-	 [BusinessEntityID] NVARCHAR(50) ,   [PersonType] NVARCHAR(500) ,   [NameStyle] NVARCHAR(500) ,   [Title] NVARCHAR(500) ,   [FirstName] NVARCHAR(500) ,   [MiddleName] NVARCHAR(500) ,   [LastName] NVARCHAR(500) ,   [Suffix] NVARCHAR(500) ,   [EmailPromotion] NVARCHAR(50) ,   [AdditionalContactInfo] NVARCHAR(500) ,   [Demographics] NVARCHAR(500) ,   [rowguid] NVARCHAR(500) ,   [ModifiedDate] NVARCHAR(50)
+CREATE EXTERNAL TABLE Ext.Product(
+	 [ProductID] NVARCHAR(50) ,   [Name] NVARCHAR(500) ,   [ProductNumber] NVARCHAR(500) ,   [MakeFlag] NVARCHAR(500) ,   [FinishedGoodsFlag] NVARCHAR(500) ,   [Color] NVARCHAR(500) ,   [SafetyStockLevel] NVARCHAR(500) ,   [ReorderPoint] NVARCHAR(500) ,   [StandardCost] NVARCHAR(500) ,   [ListPrice] NVARCHAR(500) ,   [Size] NVARCHAR(500) ,   [SizeUnitMeasureCode] NVARCHAR(500) ,   [WeightUnitMeasureCode] NVARCHAR(500) ,   [Weight] NVARCHAR(50) ,   [DaysToManufacture] NVARCHAR(50) ,   [ProductLine] NVARCHAR(500) ,   [Class] NVARCHAR(500) ,   [Style] NVARCHAR(500) ,   [ProductSubcategoryID] NVARCHAR(50) ,   [ProductModelID] NVARCHAR(50) ,   [SellStartDate] NVARCHAR(50) ,   [SellEndDate] NVARCHAR(50) ,   [DiscontinuedDate] NVARCHAR(50) ,   [rowguid] NVARCHAR(500) ,   [ModifiedDate] NVARCHAR(50)
 )
 WITH (LOCATION='./',
-      DATA_SOURCE  = Blob_person,
+      DATA_SOURCE  = Blob_product,
       FILE_FORMAT  = TextFile,
       REJECT_TYPE  = VALUE,
       REJECT_VALUE = 0);
